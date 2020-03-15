@@ -2,6 +2,11 @@
   "name": "<%= name %>",
   "diskSizeGB": "<%= size_gb %>",
   "lun": <%= lun %>,
+  <% if storage_account_type %>
+  "managedDisk": {
+          "storageAccountType": "<%= storage_account_type %>"
+  },
+  <% end %>
   <% if vhd_uri %>
     "vhd": {
       "uri": "<%= vhd_uri %>"
