@@ -80,6 +80,10 @@ module VagrantPlugins
       #
       # @return [String]
       attr_accessor :vm_image_urn
+      
+      attr_accessor :vm_plan_name
+      attr_accessor :vm_plan_publisher
+      attr_accessor :vm_plan_product
 
       # (Optional) Custom OS Image URI (like: http://mystorage1.blob.core.windows.net/vhds/myosdisk1.vhd) -- default nil.
       #
@@ -194,6 +198,9 @@ module VagrantPlugins
         @vm_password = UNSET_VALUE
         @vm_image_urn = UNSET_VALUE
         @vm_vhd_uri = UNSET_VALUE
+        @vm_plan_name = UNSET_VALUE
+        @vm_plan_publisher = UNSET_VALUE
+        @vm_plan_product = UNSET_VALUE
         @vm_image_reference_id = UNSET_VALUE
         @vm_operating_system = UNSET_VALUE
         @vm_managed_image_id = UNSET_VALUE
@@ -229,6 +236,9 @@ module VagrantPlugins
         @vm_password = nil if @vm_password == UNSET_VALUE
         @vm_image_urn = 'canonical:ubuntuserver:16.04.0-LTS:latest' if @vm_image_urn == UNSET_VALUE
         @vm_vhd_uri = nil if @vm_vhd_uri == UNSET_VALUE
+        @vm_plan_name = nil if @vm_plan_name == UNSET_VALUE
+        @vm_plan_publisher = nil if @vm_plan_publisher == UNSET_VALUE
+        @vm_plan_product = nil if @vm_plan_product == UNSET_VALUE
         @vm_vhd_storage_account_id = nil if @vm_vhd_storage_account_id == UNSET_VALUE
         @vm_operating_system = nil if @vm_operating_system == UNSET_VALUE
         @vm_managed_image_id = nil if @vm_managed_image_id == UNSET_VALUE

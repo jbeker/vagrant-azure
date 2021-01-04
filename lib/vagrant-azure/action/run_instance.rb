@@ -43,6 +43,9 @@ module VagrantPlugins
           vm_storage_account_type        = config.vm_storage_account_type
           vm_size                        = config.vm_size
           vm_image_urn                   = config.vm_image_urn
+          vm_plan_name                   = config.vm_plan_name
+          vm_plan_publisher              = config.vm_plan_publisher
+          vm_plan_product                = config.vm_plan_product
           vm_vhd_uri                     = config.vm_vhd_uri
           vm_operating_system            = config.vm_operating_system
           vm_managed_image_id            = config.vm_managed_image_id
@@ -122,7 +125,11 @@ module VagrantPlugins
             image_version:                  image_version,
             vhd_uri:                        vm_vhd_uri,
             operating_system:               operating_system,
-            data_disks:                     config.data_disks
+            data_disks:                     config.data_disks,
+            vm_plan:                        vm_plan_name && vm_plan_publisher && vm_plan_product,
+            vm_plan_name:                   vm_plan_name,
+            vm_plan_publisher:              vm_plan_publisher,
+            vm_plan_product:                vm_plan_product
           }
 
           if operating_system != "Windows"

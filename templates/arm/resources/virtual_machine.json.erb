@@ -6,6 +6,13 @@
   "dependsOn": [
     <%= (depends_on || []).map{ |resource| "\"#{resource}\"" }.join(", ") %>
   ],
+  <% if vm_plan %>
+  "plan": {
+    "name": "<%= vm_plan_name %>",
+    "product": "<%= vm_plan_product %>",
+    "publisher": "<%= vm_plan_publisher %>"
+  },
+  <% end %>
   <% if operating_system == 'Windows' %>
   <%= self_signed_cert_resource %>
   <% end %>
@@ -78,5 +85,6 @@
       "id": "[resourceId('Microsoft.Compute/availabilitySets', '<%= availability_set_name %>')]"
     }
     <% end %>
+    
   }
 }
